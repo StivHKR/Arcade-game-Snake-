@@ -4,3 +4,8 @@ canvas snakeboard{
         left: 50%;
         transform: translate(-50%, -50%);
 }
+
+canvas score{
+   text-align: center;
+        font-size: 140px;
+}
