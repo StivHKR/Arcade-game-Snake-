@@ -11,6 +11,11 @@ let snake = [
   { x: 160, y: 200 }
 ]
 
+// Horizontal velocity
+let dx = 10;
+// Vertical velocity
+let dy = 0;
+
 // Get the canvas element
 const snakeboard = document.getElementById("snakeboard");
 // Return a two dimensional drawing context
@@ -20,12 +25,17 @@ main();
 
 // main function called repeatedly to keep the game running
 function main() {
-  clearCanvas();
-  drawSnake();
+  setTimeout(function onTick() {
+    clear_board();
+    move_snake();
+    drawSnake();
+    // Call main again
+    main();
+  }, 100)
 }
 
 // draw a border around the canvas
-function clearCanvas() {
+function clear_board() {
   //  Select the colour to fill the drawing
   snakeboard_ctx.fillStyle = board_background;
   //  Select the colour for the border of the canvas
@@ -54,4 +64,12 @@ function drawSnakePart(snakePart) {
   snakeboard_ctx.fillRect(snakePart.x, snakePart.y, 10, 10);
   // Draw a border around the snake part
   snakeboard_ctx.strokeRect(snakePart.x, snakePart.y, 10, 10);
+}
+
+function move_snake() {
+  // Create the new Snake's head
+  const head = { x: snake[0].x + dx, y: snake[0].y + dy };
+  // Add the new head to the beginning of snake body
+  snake.unshift(head);
+  snake.pop();
 }
