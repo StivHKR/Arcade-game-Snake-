@@ -1,0 +1,26 @@
+<!-- canvad is used to draw graphs in js
+<canvas id="gameCanvas" width="400" height="400"><canvas></canvas>
+<script>
+  // we get the element gameCanvas 
+  const snakeboard = document.getElementById("gameCanvas");
+  // here we get context 2d wich will draw the canvas 2d  so we get a  400x400 rektangle 
+  const snakeboard_ctx = gameCanvas.getContext("2d");
+ // here we give the postion of the snake, the cordinates will be equal to the lentgth of the snake.
+  let snake = [{ x: 200, y: 200 }, { x: 190, y: 200 }, { x: 180, y: 200 }, { x: 170, y: 200 }, { x: 160, y: 200 },];
+</script>
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Snake Game</title>
+  <link href="https://fonts.googleapis.com/css?family=Antic+Slab" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+  <canvas id="snakeboard" width="400" height="400"></canvas>
+  <script src="/snake.js"></script>
+</body>
+
+</html>
